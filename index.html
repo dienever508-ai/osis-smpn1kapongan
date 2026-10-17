@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSIS SMPN 1 Kapongan | Portal Resmi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #0284c7;   /* Biru Segar & Elegan */
+      --secondary-green: #10b981;/* Hijau Peduli & Bergerak */
+      --bg-white: #f8fafc;       /* Putih Bersih / Soft */
+      --card-white: #ffffff;     /* Putih Kartu */
+      --text-dark: #0f172a;      /* Teks Utama */
+      --text-muted: #64748b;     /* Teks Sekunder */
+      --border-color: #e2e8f0;   /* Garis Tepi Soft */
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Navbar Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-box {
+      width: 40px;
+      height: 40px;
+      background-color: #e0f2fe;
+      border: 2px solid var(--primary-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+    .brand-title span {
+      color: var(--secondary-green);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1100px;
+      margin: 6rem auto 3rem auto;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      background: linear-gradient(135deg, #e0f2fe 0%, #d1fae5 100%);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: var(--secondary-green);
+      color: #ffffff;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+    }
+
+    /* Section Wrapper */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 24px;
+      background-color: var(--primary-blue);
+      border-radius: 4px;
+    }
+
+    /* Visi Misi Card Grid */
+    .visi-misi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background-color: var(--card-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .icon-blue {
+      background-color: #e0f2fe;
+      color: var(--primary-blue);
+    }
+
+    .icon-green {
+      background-color: #d1fae5;
+      color: var(--secondary-green);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Form Aspirasi */
+    .aspirasi-box {
+      background-color: var(--card-white);
+      border: 2px solid #e0f2fe;
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--primary-blue);
+    }
+
+    .btn-submit {
+      background-color: var(--primary-blue);
+      color: #ffffff;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #0369a1;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background-color: var(--card-white);
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <!-- Nanti bisa diisi tag <img> untuk Logo Sekolah & OSIS -->
+        <div class="logo-box">SMPN1</div>
+        <div class="logo-box" style="border-color: var(--secondary-green); color: var(--secondary-green);">OSIS</div>
+        <div class="brand-title">SMPN 1 <span>Kapongan</span></div>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero">
+      <span class="hero-badge">PERIODE BARU OSIS</span>
+      <h1>Pelopor Perubahan yang Berani & Impactful 🚀</h1>
+      <p>Mendengar, bergerak, dan memberikan solusi berlandaskan nilai agama serta karakter unggul demi sekolah yang lebih berdaya saing.</p>
+    </section>
+
+    <!-- Visi & Misi Section -->
+    <section>
+      <h2 class="section-title">Visi & Misi Utama</h2>
+      <div class="visi-misi-grid">
+        
+        <!-- Visi -->
+        <div class="card" style="grid-column: 1 / -1; background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);">
+          <div class="card-icon icon-green">🎯</div>
+          <h3>Visi Kami</h3>
+          <p>Mewujudkan OSIS SMPN 1 Kapongan sebagai Pelopor Perubahan yang berani mendengar, bergerak, dan memberikan solusi, dengan berlandaskan nilai agama dan karakter yang baik, serta menumbuhkan kepedulian dan semangat berbagi demi terciptanya sekolah yang unggul dan berdampak.</p>
+        </div>
+
+        <!-- Misi 1 -->
+        <div class="card">
+          <div class="card-icon icon-blue">1</div>
+          <h3>Peduli & Berbagi</h3>
+          <p>Menumbuhkan rasa peduli dan berbagi antar siswa, melalui kegiatan sosial yang bermanfaat bagi semua lingkungan sekolah.</p>
+        </div>
+
+        <!-- Misi 2 -->
+        <div class="card">
+          <div class="card-icon icon-green">2</div>
+          <h3>Program Terencana & Transparan</h3>
+          <p>Mengoptimalkan program kerja secara berkelanjutan dengan perencanaan matang, pelaksanaan efektif, dan evaluasi yang transparan.</p>
+        </div>
+
+        <!-- Misi 3 -->
+        <div class="card">
+          <div class="card-icon icon-blue">3</div>
+          <h3>Wadah Potensi & Gagasan</h3>
+          <p>Mewadahi potensi dan gagasan kritis teman-teman semua, guna membentuk generasi yang berdaya saing tinggi.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Form Aspirasi Siswa (Implmentasi Misi ke-3) -->
+    <section>
+      <h2 class="section-title">Kotak Aspirasi & Gagasan Kritis</h2>
+      <div class="aspirasi-box">
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+          Punya gagasan, ide kegiatan, atau masukan kritis buat kemajuan SMPN 1 Kapongan? Sampaikan langsung di bawah ini, suara kamu didengar! 💡
+        </p>
+        <form id="aspirasiForm">
+          <div class="form-group">
+            <label for="nama">Nama / Kelas (Boleh Dikosongkan / Anonim)</label>
+            <input type="text" id="nama" placeholder="Contoh: Budi - 8A">
+          </div>
+          <div class="form-group">
+            <label for="pesan">Gagasan atau Ide Kamu</label>
+            <textarea id="pesan" rows="4" placeholder="Tuliskan gagasan kritis atau ide seru kamu di sini..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Kirim Aspirasi 🚀</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 OSIS SMPN 1 Kapongan. Designed & Built by Sekbid Publikasi / DraXenic.</p>
+  </footer>
+
+  <script>
+    // Fitur Notifikasi Simpel
+    document.getElementById('aspirasiForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Terima kasih! Aspirasi kamu berhasil dikirim dan akan direkap oleh tim OSIS SMPN 1 Kapongan. 🚀');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
